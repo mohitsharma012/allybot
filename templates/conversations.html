@@ -1,12 +1,13 @@
 {% include 'partials/head.html' %}
 
 <body>
-    <div class="container">
+    <div class="container-full ">
         {% include 'partials/sidebar.html' %}
 
-        <div class="main_contant_conversations">
+        <div class="pt-32 px-3 md:w-5/6 m-auto">
+            <h3 class="text-center font-bold text-3xl font-mono">Chats</h3>
             {% for message in user_messages %}
-            <div class="conversation_messgae">
+            <div class="">
                 <b>User:</b> {{ message.message_text }} <br />
                 <b>Alley:</b> {{ message.ai_response }}
             </div>

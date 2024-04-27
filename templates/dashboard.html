@@ -1,22 +1,26 @@
 {% include 'partials/head.html' %}
 
 <body>
-    <div class="container">
-        {% include 'partials/sidebar.html' %}
+    {% include 'partials/sidebar.html' %}
 
-       
-        <div class="main_contant_dashboard">
-            <h1>AlleyBot</h1>
-            <button id="start-record-btn" class="listen_btn" title="Start Recording">
+
+    <div
+        class="container-full flex min-h-[100vh] bg-[url('static/img/index_background.jpg')] bg-top pt-24 md:pt-0 flex-col text-center ">
+        <div class="m-auto  ">
+            <h1 class="text-3xl font-mono font-bold	md:text-4xl	">AlleyBot</h1>
+
+            <button id="start-record-btn"
+                class=" bg-[#f0f8ff30] border border-white backdrop-blur	shadow-2xl rounded-full my-2 w-72 h-72 sm:w-96 sm:h-96 md:w-[55vh] md:h-[55vh] text-xl"
+                title="Start Recording">
                 Click here to talk
+
             </button>
 
-            <div id="transcript">Waiting for input...</div>
-
-            <p id="ai-response">AI Response will appear here...</p>
+            <div id="transcript" class="text-xl">Waiting for input...</div>
+            <p id="ai-response" class="px-3 text-xl">AI Response will appear here...</p>
         </div>
     </div>
-   
+
 
 
 

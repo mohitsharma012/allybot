@@ -1,90 +1,96 @@
-{% load static %}
+{% include 'partials/head.html' %}
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+<body>
+  <div class="min-h-screen flex flex-col bg-[url('static/img/index_background.jpg')] bg-center bg-cover w-full ">
+    <nav class="bg-black text-white text-center py-6 text-2xl font-mono font-bold">
+      AllyBot
+    </nav>
 
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="{% static 'css/signin-signup-css.css' %}"
-    />
-  </head>
-  <body>
 
-    <form id="signup_form_screen" action="user_registration" method="post" style="display: none" class="form">
-      {% csrf_token %}
+    <!-- Signup Section  -->
+    <section id="signup_form_screen" style="display: none"
+      class="flex flex-col m-auto text-white	backdrop-blur-lg border w-11/12 sm:w-2/4 lg:w-[25rem] px-3 py-12 sm:px-8 sm:py-20 border-white rounded-xl">
+      <h3 class="m-auto font-bold  font-mono text-3xl ">Login</h3>
 
-      <p class="title">Register</p>
-      <p class="message">Signup now and get full access to our app.</p>
+      <form action="user_registration" method="post" class="flex flex-col m-auto w-full ">
+        {% csrf_token %}
 
-      <label>
-        <input required=""  name="user_name" placeholder="" type="text" class="input" />
+
         <span>Name</span>
-      </label>
+        <input required="" name="user_name" placeholder="" type="text"
+          class="bg-transparent border-white w-full rounded-lg" />
 
-      <label>
-        <input required="" name="user_email" placeholder="" type="email" class="input" />
+
         <span>Email</span>
-      </label>
+        <input required="" name="user_email" placeholder="" type="email"
+          class="bg-transparent border-white w-full rounded-lg" />
 
-      <label>
-        <input required="" name="user_pass" placeholder="" type="password" class="input" />
+
+
         <span>Password</span>
-      </label>
+        <input required="" name="user_pass" placeholder="" type="password"
+          class="bg-transparent border-white w-full rounded-lg" />
 
-      <label>
-        <input required="" name="user_cpass" placeholder="" type="password" class="input" />
+
+
         <span>Confirm password</span>
-      </label>
+        <input required="" name="user_cpass" placeholder="" type="password"
+          class="bg-transparent border-white w-full rounded-lg" />
 
-      <button id="signup_submit_btn" class="submit">Submit</button>
-      <p class="signin">
+
+        <button id="signup_submit_btn" class="bg-white text-black hover:bg-gray-200 py-2 my-5 rounded-lg">Create
+          Account</button>
+      </form>
+      <span class="m-auto text-sm font-thin">
         Already have an acount ?
-        <button onclick="change_to_signin()" style="background-color: transparent; border: none; cursor: pointer">Signin</button>
-      </p>
-    </form>
+      </span>
+      <button onclick="change_to_signin()"
+        class="bg-transparent border hover:bg-gray-200	 hover:text-black border-white text-white py-2 text-base	 rounded-lg">Signin</button>
+    </section>
 
-    <form id="signin_form_screen" action="/user_login" method="post" class="form">
-      {% csrf_token %}
 
-      <p class="title">Login</p>
-      <p class="message">Signin now to access to our app.</p>
-      <label>
-        <input required="" name="user_email" value="stayer.mohit@gmail.com" placeholder="" type="email" class="input" />
-        <span>Email</span>
-      </label>
 
-      <label>
-        <input required="" placeholder="" name="user_pass" value="123" type="password" class="input" />
+    <!-- Signin section  -->
+    <section id="signin_form_screen"
+      class="flex flex-col m-auto text-white	backdrop-blur-lg border w-11/12 sm:w-2/4 lg:w-[25rem] px-3 py-12 sm:px-8 sm:py-20 border-white rounded-xl">
+      <h3 class="m-auto font-bold  font-mono text-3xl ">Login</h3>
+      <form action="/user_login" method="post" class="flex flex-col m-auto w-full 	">
+        {% csrf_token %}
+
+        <span>Email ID</span>
+        <input required="" name="user_email" value="stayer.mohit@gmail.com" placeholder="" type="email"
+          class="bg-transparent border-white w-full rounded-lg" />
+
         <span>Password</span>
-      </label>
-      <button id="signup_submit_btn" class="submit">Submit</button>
-      <p class="signin">
-        Don't have an acount ?
-        <button
-          onclick="change_to_signup()"
-          style="background-color: transparent; border: none; cursor: pointer"
-        >
-          Create New Account
-        </button>
-      </p>
-    </form>
+        <input required="" placeholder="" name="user_pass" value="123" type="password"
+          class="bg-transparent border-white rounded-lg" />
+        <button id="signup_submit_btn" class="bg-white text-black hover:bg-gray-200 py-2 my-5 rounded-lg">Login</button>
+      </form>
+      <span class="m-auto text-sm font-thin	
+    ">
+        Don't have an acount?
+      </span>
+      <button onclick="change_to_signup()"
+        class="bg-transparent border hover:bg-gray-200	 hover:text-black border-white text-white py-2 text-base	 rounded-lg">
+        Create New Account
+      </button>
+    </section>
+  </div>
 
-    <script>
-      let signup_form_screen = document.getElementById("signup_form_screen");
-      let signin_form_screen = document.getElementById("signin_form_screen");
-      function change_to_signin() {
-        signup_form_screen.style.display = "none";
-        signin_form_screen.style.display = "block";
-      }
-      function change_to_signup() {
-        signin_form_screen.style.display = "none";
-        signup_form_screen.style.display = "block";
-      }
-    </script>
-  </body>
+
+  <script>
+    let signup_form_screen = document.getElementById("signup_form_screen");
+    let signin_form_screen = document.getElementById("signin_form_screen");
+    function change_to_signin() {
+      signup_form_screen.style.display = "none";
+      signin_form_screen.style.display = "flex";
+    }
+    function change_to_signup() {
+      signin_form_screen.style.display = "none";
+      signup_form_screen.style.display = "flex";
+    }
+  </script>
+
+</body>
+
 </html>
