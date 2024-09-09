@@ -71,7 +71,7 @@ const VoiceRecorder = () => {
   return (
     <>
       <SideBar />
-      <div className="container-full flex min-h-[100vh] bg-[url('index_background.jpg')] bg-top pt-24 md:pt-0 flex-col text-center ">
+      <div className="container-full flex min-h-[100vh] bg-[url(/index_background.jpg)] bg-top pt-24 md:pt-0 flex-col text-center ">
         <div className="m-auto">
           <h1 className="text-3xl font-mono font-bold md:text-4xl">AlleyBot</h1>
 
