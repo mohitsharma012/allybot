@@ -92,7 +92,7 @@ const index = () => {
     <>
       <ToastContainer theme="dark" />
 
-      <div className="min-h-screen flex flex-col bg-[url('index_background.jpg')] bg-center bg-cover w-full">
+      <div className="min-h-screen flex flex-col bg-[url(/index_background.jpg)] bg-center bg-cover w-full">
         <nav className="bg-black text-white text-center py-6 text-2xl font-mono font-bold">
           AllyBot
         </nav>
