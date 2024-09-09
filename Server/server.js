@@ -12,7 +12,17 @@ const app = express();
 
 // middlewares
 app.use(express.json())
-app.use(cors())
+
+// Allow all origins
+app.use(cors());
+
+// or for more control
+const corsOptions = {
+  origin: '*', // Allow all origins
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true, // If you need to allow credentials (cookies, etc.)
+};
+app.use(cors(corsOptions));
 
 
 app.use(express.urlencoded({ extended: true }));
